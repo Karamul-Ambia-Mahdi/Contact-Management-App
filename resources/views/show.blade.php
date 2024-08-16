@@ -8,12 +8,9 @@
         <div class="row d-flex justify-content-center">
 
             <div class="col-7 mb-3">
-                <form action="{{ route('contacts.index') }}" method="POST">
-                    @method("GET")
-                    @csrf
-                    <input type="hidden">
-                    <button type="submit" class="btn btn-primary">Home</button>
-                </form>
+                <a href="{{ route('contacts.index') }}">
+                    <button class="btn btn-primary">Back</button>
+                </a>
             </div>
 
             <div class="col-7 border p-5">

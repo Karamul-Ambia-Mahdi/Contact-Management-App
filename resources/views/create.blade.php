@@ -3,12 +3,9 @@
         <h1 class="m-3">Create New Contact</h1>
 
         <div class="m-3">
-            <form action="{{ route('contacts.index') }}" method="POST">
-                @method('GET')
-                @csrf
-                <input type="hidden">
-                <button type="submit" class="btn btn-success">Home</button>
-            </form>
+            <a href="{{ route('contacts.index') }}">
+                <button class="btn btn-primary">Back</button>
+            </a>
         </div>
 
         <form action="{{ route('contacts.store') }}" method="POST" class="row g-3 m-3">
@@ -47,7 +44,7 @@
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Submit</button>
             </div>
             @if (session('success'))
                 <p>{{ session('success') }}</p>

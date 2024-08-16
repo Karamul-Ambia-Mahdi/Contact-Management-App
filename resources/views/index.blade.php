@@ -3,15 +3,21 @@
     <div class="container">
         <div class="row d-flex justify-contain-between">
 
-            <div class="text-center m-5">
+            <div class="text-center mt-5">
                 <h1>All Contacts</h1>
+            </div>
+
+            <div class="reverse-col-1 m-5">
+                <a href="{{ route('contacts.index') }}">
+                    <button class="btn btn-primary px-3">Back</button>
+                </a>
             </div>
 
             <div class="col-2 mx-5">
                 <x-contact-sort :sort="request()->get('sort')" />
             </div>
 
-            <div class="col-6 mx-5">
+            <div class="col-5 mx-5">
                 <form action="{{ route('contacts.index') }}" method="POST">
                     @method('GET')
                     @csrf
@@ -21,12 +27,9 @@
             </div>
 
             <div class="col-2 mx-1">
-                <form action="{{ route('contacts.create') }}" method="POST">
-                    @method('GET')
-                    @csrf
-                    <input type="hidden">
+                <a href="{{ route('contacts.create') }}">
                     <button type="submit" class="btn btn-success">Create New Contact</button>
-                </form>
+                </a>
             </div>
 
             @foreach ($contacts as $contact)
@@ -43,21 +46,16 @@
                         <div class="row d-flex justify-content-center">
 
                             <div class="col-4">
-                                <form action="{{ route('contacts.show', $contact) }}" method="POST" class="mb-2">
-                                    @method('GET')
-                                    @csrf
-                                    <input type="hidden">
+                                <a href="{{ route('contacts.show', $contact) }}">
                                     <button type="submit" class="btn btn-primary px-4">View</button>
-                                </form>
+                                </a>
                             </div>
 
                             <div class="col-4">
-                                <form action="{{ route('contacts.edit', $contact) }}" method="POST" class="mb-2">
-                                    @method('GET')
-                                    @csrf
-                                    <input type="hidden">
+
+                                <a href="{{ route('contacts.edit', $contact) }}">
                                     <button type="submit" class="btn btn-secondary px-4">Edit</button>
-                                </form>
+                                </a>
                             </div>
 
                             <div class="col-4">

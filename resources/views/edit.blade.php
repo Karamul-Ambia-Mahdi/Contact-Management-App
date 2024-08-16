@@ -3,12 +3,9 @@
         <h1 class="m-3">Edit Contact</h1>
 
         <div class="m-3">
-            <form action="{{ route('contacts.index') }}" method="POST">
-                @method("GET")
-                @csrf
-                <input type="hidden">
-                <button type="submit" class="btn btn-success">Home</button>
-            </form>
+            <a href="{{ route('contacts.index') }}">
+                <button class="btn btn-primary">Back</button>
+            </a>
         </div>
 
         <form action="{{ route('contacts.update', $contact) }}" method="POST" class="row g-3 m-3">
@@ -17,7 +14,8 @@
 
             <div class="col-md-6">
                 <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" name="name" value="{{ old('name') == "" ? $contact->name : old('name') }}">
+                <input type="text" class="form-control" name="name"
+                    value="{{ old('name') == '' ? $contact->name : old('name') }}">
             </div>
 
             <p>
@@ -28,7 +26,8 @@
 
             <div class="col-md-6">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" class="form-control" name="email" value="{{ old('email') == "" ? $contact->email : old('email') }}">
+                <input type="email" class="form-control" name="email"
+                    value="{{ old('email') == '' ? $contact->email : old('email') }}">
             </div>
 
             <p>
@@ -39,16 +38,18 @@
 
             <div class="col-12">
                 <label for="phone" class="form-label">Phone</label>
-                <input type="text" class="form-control" name="phone" value="{{ old('phone') == "" ? $contact->phone : old('phone') }}">
+                <input type="text" class="form-control" name="phone"
+                    value="{{ old('phone') == '' ? $contact->phone : old('phone') }}">
             </div>
 
             <div class="col-12">
                 <label for="address" class="form-label">Address</label>
-                <input type="text" class="form-control" name="address" value="{{ old('address') == "" ? $contact->address : old('address') }}">
+                <input type="text" class="form-control" name="address"
+                    value="{{ old('address') == '' ? $contact->address : old('address') }}">
             </div>
 
             <div class="col-12">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-success">Submit</button>
             </div>
             @if (session('success'))
                 <p>{{ session('success') }}</p>
